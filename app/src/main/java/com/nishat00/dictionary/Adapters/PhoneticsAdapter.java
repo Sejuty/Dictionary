@@ -38,6 +38,23 @@ public class PhoneticsAdapter extends RecyclerView.Adapter<PhoneticsViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull PhoneticsViewHolder holder, int position) {
         holder.textview_phonetics.setText(phoneticsList.get(position).getText());
+        holder.image_button_audio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MediaPlayer player = new MediaPlayer();
+                try {
+                    String url = phoneticsList.get(holder.getAdapterPosition()).getAudio();
+                    player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                    player.setDataSource(url);
+                    Log.i("Audio",url);
+                    player.prepare();
+                    player.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(context, "Couldn't Play Audio...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
