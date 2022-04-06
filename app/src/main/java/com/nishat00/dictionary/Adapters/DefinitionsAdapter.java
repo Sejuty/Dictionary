@@ -1,6 +1,7 @@
 package com.nishat00.dictionary.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -38,8 +39,11 @@ public class DefinitionsAdapter extends RecyclerView.Adapter<DefinitionsViewHold
         StringBuilder synonyms = new StringBuilder();
         StringBuilder antonyms = new StringBuilder();
 
+
         synonyms.append(definitionsList.get(position).getSynonyms());
         antonyms.append(definitionsList.get(position).getAntonyms());
+
+        //Log.i("Synonyms", synonyms.toString());
 
         holder.textview_synonyms.setText(synonyms);
         holder.textview_antonyms.setText(antonyms);

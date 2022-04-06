@@ -34,6 +34,7 @@ public class MeaningsAdapter extends RecyclerView.Adapter<MeaningsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MeaningsViewHolder holder, int position) {
         holder.textview_partOfSpeech.setText("Parts of Speech: "+meaningsList.get(position).getPartOfSpeech());
+
         holder.recyler_definitions.setHasFixedSize(true);
         holder.recyler_definitions.setLayoutManager(new GridLayoutManager(context,1));
 

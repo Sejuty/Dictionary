@@ -1,12 +1,14 @@
 package com.nishat00.dictionary.view_holders;
 
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.nishat00.dictionary.Adapters.PhoneticsAdapter;
 import com.nishat00.dictionary.R;
 
 public class PhoneticsViewHolder extends RecyclerView.ViewHolder {

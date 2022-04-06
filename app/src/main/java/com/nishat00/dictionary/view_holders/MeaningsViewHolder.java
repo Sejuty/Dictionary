@@ -12,6 +12,7 @@ public class MeaningsViewHolder extends RecyclerView.ViewHolder {
 
     public TextView textview_partOfSpeech;
     public RecyclerView recyler_definitions;
+
     public MeaningsViewHolder(@NonNull View itemView) {
         super(itemView);
         textview_partOfSpeech = itemView.findViewById(R.id.textview_partOfSpeech);

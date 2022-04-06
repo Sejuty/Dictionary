@@ -3,8 +3,8 @@ package com.nishat00.dictionary.model;
 import java.util.List;
 
 public class Meanings {
-    String partOfSpeech ="";
-    List<Definitions> definitions =null;
+    String partOfSpeech = "";
+    List<Definitions> definitions = null;
 
     public String getPartOfSpeech() {
         return partOfSpeech;
