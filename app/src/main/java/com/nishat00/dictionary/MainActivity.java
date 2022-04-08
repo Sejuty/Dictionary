@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.nishat00.dictionary.Adapters.MeaningsAdapter;
 import com.nishat00.dictionary.Adapters.PhoneticsAdapter;
-import com.nishat00.dictionary.model.APIResponse;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 progressDialog.setTitle("Fetching Response for "+query);
                 progressDialog.show();
 
-                RequestManager manager = new RequestManager(MainActivity.this);
-                manager.getWordMeaning(listener, query);
+                RetrofitBuilder retrofitBuilder = new RetrofitBuilder(MainActivity.this);
+                retrofitBuilder.getCallResponse(listener, query);
                 return true;
             }
 
@@ -54,14 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
     private final OnFetchDataListener listener = new OnFetchDataListener() {
         @Override
-        public void OnFetchData(APIResponse apiResponse, String message) {
+        public void OnFetchData(DataModel dataModel, String message) {
             progressDialog.dismiss();
-            if(apiResponse==null)
+            if(dataModel ==null)
             {
                 Toast.makeText(MainActivity.this, "No data found!!!", Toast.LENGTH_SHORT).show();
                 return;
             }
-            showData(apiResponse);
+            showData(dataModel);
         }
 
         @Override
@@ -71,17 +70,18 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private void showData(APIResponse apiResponse) {
-      textview_word.setText("Word: "+apiResponse.getWord());
+    private void showData(DataModel dataModel) {
+      textview_word.setText("Word: "+ dataModel.getWord());
 
       recyler_phonetics.setHasFixedSize(true);
       recyler_phonetics.setLayoutManager(new GridLayoutManager(this,1));
-      phoneticsAdapter = new PhoneticsAdapter(this,apiResponse.getPhonetics());
+
+      phoneticsAdapter = new PhoneticsAdapter(this, dataModel.getPhonetics());
       recyler_phonetics.setAdapter(phoneticsAdapter);
 
       recyler_meanings.setHasFixedSize(true);
       recyler_meanings.setLayoutManager(new GridLayoutManager(this,1));
-      meaningsAdapter = new MeaningsAdapter(this,apiResponse.getMeanings());
+      meaningsAdapter = new MeaningsAdapter(this, dataModel.getMeanings());
       recyler_meanings.setAdapter(meaningsAdapter);
 
     }

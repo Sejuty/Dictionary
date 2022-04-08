@@ -1,8 +1,11 @@
-package com.nishat00.dictionary.model;
+package com.nishat00.dictionary;
+
+import com.nishat00.dictionary.model.Meanings;
+import com.nishat00.dictionary.model.Phonetics;
 
 import java.util.List;
 
-public class APIResponse {
+public class DataModel {
     String word = "";
     List<Phonetics> phonetics =null;
     List<Meanings> meanings = null;

@@ -37,7 +37,7 @@ public class PhoneticsAdapter extends RecyclerView.Adapter<PhoneticsViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull PhoneticsViewHolder holder, int position) {
-        String url = phoneticsList.get(holder.getAdapterPosition()).getAudio();
+        //String url = phoneticsList.get(holder.getAdapterPosition()).getAudio();
         holder.textview_phonetics.setText(phoneticsList.get(position).getText());
 
         holder.image_button_audio.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +45,7 @@ public class PhoneticsAdapter extends RecyclerView.Adapter<PhoneticsViewHolder> 
             public void onClick(View view) {
                 MediaPlayer player = new MediaPlayer();
                 try {
-                    // String url = phoneticsList.get(holder.getAdapterPosition()).getAudio();
+                    String url = phoneticsList.get(holder.getAdapterPosition()).getAudio();
                     player.setAudioStreamType(AudioManager.STREAM_MUSIC);
                     player.setDataSource(url);
                     //Log.i("Audio", url);

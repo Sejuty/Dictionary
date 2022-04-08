@@ -5,6 +5,16 @@ import java.util.List;
 public class Meanings {
     String partOfSpeech = "";
     List<Definitions> definitions = null;
+    List<String>synonyms = null;
+    List<String> antonyms = null;
+
+    public List<String> getAntonyms() {
+        return antonyms;
+    }
+
+    public List<String> getSynonyms() {
+        return synonyms;
+    }
 
     public String getPartOfSpeech() {
         return partOfSpeech;

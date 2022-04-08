@@ -30,6 +30,72 @@
             android:id="@+id/recyler_definitions"
             android:layout_margin="8dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Synonyms"
+            android:background="@color/grey"
+            android:textColor="@color/yellow"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:textStyle="italic"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="(In General)"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:textStyle="italic"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Synonyms"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:id="@+id/extra_synonyms"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Antonyms"
+            android:background="@color/grey"
+            android:textColor="@color/yellow"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:textStyle="italic"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="(In General)"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:textStyle="italic"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Antonyms"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:id="@+id/extra_antonyms"/>
 
 
     </LinearLayout>

@@ -3,8 +3,6 @@ package com.nishat00.dictionary;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.nishat00.dictionary.model.APIResponse;
-
 import java.util.List;
 
 import retrofit2.Call;
@@ -15,26 +13,31 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public class RequestManager {
+public class RetrofitBuilder {
     Context context;
+
+    //retrofit builder
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://api.dictionaryapi.dev/api/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
 
-    public RequestManager(Context context) {
+    public RetrofitBuilder(Context context) {
         this.context = context;
     }
 
-    public void getWordMeaning(OnFetchDataListener listener, String word) {
-        CallDictionary callDictionary = retrofit.create(CallDictionary.class);
-        Call<List<APIResponse>> call = callDictionary.callMeanings(word);
+    public void getCallResponse(OnFetchDataListener listener, String word) {
+
+        //create instances of CallDictionary
+        variableUrl variableUrl = retrofit.create(variableUrl.class);
+
+        Call<List<DataModel>> call = variableUrl.callData(word);
 
         try {
-            call.enqueue(new Callback<List<APIResponse>>() {
+            call.enqueue(new Callback<List<DataModel>>() {
                 @Override
-                public void onResponse(Call<List<APIResponse>> call, Response<List<APIResponse>> response) {
+                public void onResponse(Call<List<DataModel>> call, Response<List<DataModel>> response) {
                     if (!response.isSuccessful()) {
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         return;
@@ -43,7 +46,7 @@ public class RequestManager {
                 }
 
                 @Override
-                public void onFailure(Call<List<APIResponse>> call, Throwable t) {
+                public void onFailure(Call<List<DataModel>> call, Throwable t) {
                     listener.OnError("Request Failed!!!");
 
                 }
@@ -55,9 +58,9 @@ public class RequestManager {
         }
     }
 
-    public interface CallDictionary {
+    public interface variableUrl {
         @GET("entries/en/{word}")
-        Call<List<APIResponse>> callMeanings(
+        Call<List<DataModel>> callData(
                 @Path("word") String word
         );
     }
