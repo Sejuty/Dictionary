@@ -33,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
         recyler_phonetics = findViewById(R.id.recyler_phonetics);
         recyler_meanings = findViewById(R.id.recyler_meanings);
 
+        progressDialog.setTitle("Loading... ");
+        progressDialog.show();
+
+        RetrofitBuilder retrofitBuilder = new RetrofitBuilder(MainActivity.this);
+        retrofitBuilder.getCallResponse(listener, "heaven");
+
         search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
